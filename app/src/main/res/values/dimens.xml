@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="progress_size">26dp</dimen>
+    <dimen name="smallest_space">4dp</dimen>
+    <dimen name="very_small_space">8dp</dimen>
+    <dimen name="small_space">16dp</dimen>
+    <dimen name="normal_space">24dp</dimen>
+    <dimen name="big_space">32dp</dimen>
+    <dimen name="very_big_space">40dp</dimen>
+    <dimen name="biggest_space">48dp</dimen>
+    <dimen name="row_list_height">64dp</dimen>
+    <dimen name="row_image_size">48dp</dimen>
+    <dimen name="row_text_size">18sp</dimen>
+    <dimen name="detail_option_size">20dp</dimen>
+    <dimen name="splash_title_margin_top">50dp</dimen>
+    <dimen name="splash_title_text_size">48sp</dimen>
+</resources>

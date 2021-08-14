@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Marvel</string>
+    <string name="ok">OK</string>
+
+    <!-- ERRORS -->
+    <string name="no_network_error">Es necesaria una conexión de wifi o datos. Por favor, conecte y vuelva a intentarlo</string>
+    <string name="unexpected_error">Se ha producido un error al realizar la operación</string>
 </resources>

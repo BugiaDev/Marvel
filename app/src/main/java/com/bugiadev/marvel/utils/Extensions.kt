@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.bugiadev.marvel.ApplicationComponentProvider
+import com.bugiadev.marvel.ui.viewmodel.NoNetworkException
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -13,7 +15,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import java.net.SocketTimeoutException
 
-/*
 fun <T> Single<T>.mapNetworkErrors(): Single<T> =
         this.onErrorResumeNext { error ->
             when (error) {
@@ -21,7 +22,6 @@ fun <T> Single<T>.mapNetworkErrors(): Single<T> =
                 else -> Single.error(error)
             }
         }
- */
 
 fun <T> Single<T>.prepareForUI(): Single<T> =
         subscribeOn(Schedulers.io())
@@ -53,8 +53,6 @@ inline fun <reified T : ViewModel> Fragment.viewModel(
     }
 }
 
-/*
 val Activity.injector
 get() = (application as ApplicationComponentProvider).provideApplicationComponent()
- */
 
