@@ -8,10 +8,13 @@
     <dimen name="big_space">32dp</dimen>
     <dimen name="very_big_space">40dp</dimen>
     <dimen name="biggest_space">48dp</dimen>
-    <dimen name="row_list_height">64dp</dimen>
+    <dimen name="row_list_height">300dp</dimen>
+    <dimen name="row_list_width">300dp</dimen>
     <dimen name="row_image_size">48dp</dimen>
-    <dimen name="row_text_size">18sp</dimen>
+    <dimen name="row_text_size">40sp</dimen>
+    <dimen name="row_button_size">25sp</dimen>
     <dimen name="detail_option_size">20dp</dimen>
     <dimen name="splash_title_margin_top">50dp</dimen>
     <dimen name="splash_title_text_size">48sp</dimen>
+    <dimen name="big_image_size">200dp</dimen>
 </resources>

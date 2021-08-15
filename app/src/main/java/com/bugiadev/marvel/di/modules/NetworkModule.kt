@@ -4,6 +4,7 @@ import com.bugiadev.marvel.BuildConfig
 import com.bugiadev.marvel.data.network.MarvelRxCallAdapterFactory
 import com.bugiadev.marvel.di.annotations.ApplicationScope
 import com.bugiadev.marvel.utils.delegatingCallFactory
+import com.bugiadev.marvel.utils.md5
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -29,6 +30,25 @@ object NetworkModule {
     fun providesHttpClient(): OkHttpClient {
         return OkHttpClient.Builder().apply {
             readTimeout(30L, TimeUnit.SECONDS)
+            addInterceptor { chain ->
+                val currentTimestamp = System.currentTimeMillis()
+                val newUrl = chain.request().url
+                    .newBuilder()
+                    .addQueryParameter("ts", currentTimestamp.toString())
+                    .addQueryParameter("apikey", BuildConfig.PUBLIC_KEY)
+                    .addQueryParameter(
+                        "hash",
+                        (currentTimestamp.toString() + BuildConfig.PRIVATE_KEY + BuildConfig.PUBLIC_KEY).md5()
+                    )
+                    .build()
+
+                val newRequest = chain.request()
+                    .newBuilder()
+                    .url(newUrl)
+                    .build()
+                chain.proceed(newRequest)
+            }
+
         }.build()
     }
 
