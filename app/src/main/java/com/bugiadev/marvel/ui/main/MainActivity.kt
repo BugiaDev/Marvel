@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), MarvelInjection {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.navigationBarColor = getColor(R.color.very_dark_red)
         _binding = DataBindingUtil.setContentView(
             this,
             R.layout.activity_main
