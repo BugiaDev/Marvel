@@ -6,12 +6,10 @@ data class CharacterModel(
     val description: String?,
     val modified: String?,
     val resourceURI: String?,
-    val characterImage: CharacterThumbnailModel?
-) {
-    companion object {
-        fun thumbnail(image: String): CharacterThumbnailModel {
-            val imageSplit = image.split(".")
-            return CharacterThumbnailModel(imageSplit[0], imageSplit[1])
-        }
-    }
-}
+    val characterImage: ThumbnailModel?
+)
+
+data class ThumbnailModel(
+    val path: String?,
+    val extension: String?
+)

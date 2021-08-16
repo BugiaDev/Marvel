@@ -2,6 +2,7 @@ package com.bugiadev.marvel.data.entities
 
 import com.bugiadev.marvel.domain.DomainMappable
 import com.bugiadev.marvel.domain.models.CharacterModel
+import com.bugiadev.marvel.domain.models.ThumbnailModel
 import com.bugiadev.marvel.utils.empty
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -24,7 +25,8 @@ data class CharacterEntity(
     @Json(name = "name") val name: String? = String.empty(),
     @Json(name = "description") val description: String? = String.empty(),
     @Json(name = "modified") val modified: String? = String.empty(),
-    @Json(name = "resourceURI") val resourceURI: String? = String.empty()
+    @Json(name = "resourceURI") val resourceURI: String? = String.empty(),
+    @Json(name = "thumbnail") val thumbnail: ThumbnailEntity?
 ) : DomainMappable<CharacterModel> {
     override fun toDomain(): CharacterModel = CharacterModel(
         id = id,
@@ -32,6 +34,17 @@ data class CharacterEntity(
         description = description,
         modified = modified,
         resourceURI = resourceURI,
-        characterImage = null
+        characterImage = thumbnail?.toDomain()
+    )
+}
+
+@JsonClass(generateAdapter = true)
+data class ThumbnailEntity(
+    @Json(name = "path") val path: String? = String.empty(),
+    @Json(name = "extension") val extension: String? = String.empty()
+) : DomainMappable<ThumbnailModel> {
+    override fun toDomain(): ThumbnailModel = ThumbnailModel(
+        path = path,
+        extension = extension
     )
 }

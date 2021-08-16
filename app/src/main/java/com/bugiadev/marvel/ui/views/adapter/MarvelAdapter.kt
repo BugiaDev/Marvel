@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bugiadev.marvel.R
 import com.bugiadev.marvel.databinding.CharacterItemViewBinding
 import com.bugiadev.marvel.ui.presentation.CharacterDisplay
+import com.bugiadev.marvel.utils.loadFromUrl
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
@@ -21,18 +22,16 @@ class MarvelAdapter(
         private val onClickListener: MarvelCharacterCallback? = null
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: CharacterDisplay) {
-            binding.itemCell.setOnClickListener {
-                onClickListener?.let {
-                    it(data)
+            binding.apply {
+                itemCell.setOnClickListener {
+                    onClickListener?.let {
+                        it(data)
+                    }
                 }
-            }
 
-            binding.characterNameTextView.text = data.name
-            Glide.with(binding.characterImage.context)
-                .load(data.resourceURI)
-                .placeholder(R.drawable.marvel_placeholder)
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .into(binding.characterImage)
+                characterNameTextView.text = data.name
+                characterImage.loadFromUrl(data.imageURI.orEmpty(), characterImage.context)
+            }
         }
     }
 

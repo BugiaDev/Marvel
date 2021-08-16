@@ -7,14 +7,18 @@ data class CharacterDisplay(
     val name: String?,
     val description: String?,
     val modified: String?,
-    val resourceURI: String?
+    val resourceURI: String?,
+    val imageURI: String?
 )
 
-fun CharacterModel.toDisplay() : CharacterDisplay =
-    CharacterDisplay(
+fun CharacterModel.toDisplay(): CharacterDisplay {
+    val imageURI = characterImage?.path + "." + characterImage?.extension
+    return CharacterDisplay(
         id = id,
         name = name,
         description = description,
         modified = modified,
-        resourceURI = resourceURI
+        resourceURI = resourceURI,
+        imageURI = imageURI
     )
+}

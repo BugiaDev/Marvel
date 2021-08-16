@@ -17,7 +17,10 @@ class MarvelRepositoryImpl @Inject constructor(
             }
         }
 
-    override fun getMarvelCharacterDetail(id: String): Single<CharacterModel> {
-        TODO("Not yet implemented")
-    }
+    override fun getMarvelCharacterDetail(id: String): Single<CharacterModel> =
+        dataSource.getCharacterDetail(id).mapNetworkErrors().map { marvelEntity ->
+            marvelEntity.data.characters?.let {
+                it[0].toDomain()
+            }
+        }
 }

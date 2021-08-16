@@ -5,7 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
-        android:background="@color/red"
+        android:background="@drawable/marvel_wp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/small_space"

@@ -14,12 +14,14 @@
         <ImageView
             android:id="@+id/character_image"
             android:layout_gravity="center_vertical"
+            style="@style/autoAdjustImageView"
+            android:scaleType="centerCrop"
             android:contentDescription="@null"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="@dimen/big_image_size"
-            android:layout_height="@dimen/big_image_size"/>
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
 
         <TextView
             android:id="@+id/character_name_textView"
@@ -27,6 +29,7 @@
             android:maxLines="1"
             android:gravity="center"
             tools:text="Spiderman"
+            android:textColor="@color/white"
             android:ellipsize="end"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +40,7 @@
         <TextView
             android:id="@+id/more_info_textview"
             android:textSize="@dimen/row_button_size"
-            android:textColor="@color/red"
+            android:textColor="@color/teal_200"
             android:text="@string/more_info"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"

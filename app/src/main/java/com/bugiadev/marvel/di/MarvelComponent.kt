@@ -1,6 +1,7 @@
 package com.bugiadev.marvel.di
 
 import com.bugiadev.marvel.di.annotations.ActivityScope
+import com.bugiadev.marvel.ui.fragment.DetailFragment
 import com.bugiadev.marvel.ui.fragment.ListFragment
 import com.bugiadev.marvel.ui.viewmodel.MarvelViewModel
 import dagger.Component
@@ -13,7 +14,7 @@ interface MarvelComponent {
     val marvelViewModel: MarvelViewModel
 
     fun inject(fragment: ListFragment)
-    //fun inject(fragment: DetailFragment)
+    fun inject(fragment: DetailFragment)
 
     @Component.Factory
     interface Factory {

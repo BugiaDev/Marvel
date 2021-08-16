@@ -9,6 +9,7 @@
     <dimen name="very_big_space">40dp</dimen>
     <dimen name="biggest_space">48dp</dimen>
     <dimen name="row_list_height">300dp</dimen>
+    <dimen name="detail_description_margin">150dp</dimen>
     <dimen name="row_list_width">300dp</dimen>
     <dimen name="row_image_size">48dp</dimen>
     <dimen name="row_text_size">40sp</dimen>

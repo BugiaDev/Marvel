@@ -23,4 +23,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+    <style name="autoAdjustImageView">
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">center</item>
+    </style>
 </resources>
