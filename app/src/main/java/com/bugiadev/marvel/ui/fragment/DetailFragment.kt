@@ -14,8 +14,6 @@ import com.bugiadev.marvel.ui.presentation.toDisplay
 import com.bugiadev.marvel.ui.viewmodel.MarvelViewModel
 import com.bugiadev.marvel.utils.loadFromUrl
 import com.bugiadev.marvel.utils.viewModel
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     private val args: DetailFragmentArgs by navArgs()
@@ -55,7 +53,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         viewModel.marvelCharacterDetail.observe(viewLifecycleOwner, { character ->
             val display = character.toDisplay()
             binding.apply {
-                val descriptionText = if (display.description.isNullOrEmpty()) getString(R.string.character_no_description_placeholder) else display.description
+                val descriptionText =
+                    if (display.description.isNullOrEmpty()) getString(R.string.character_no_description_placeholder) else display.description
                 nameTextview.text = display.name
                 descriptionTextview.text = descriptionText
                 characterImage.loadFromUrl(display.imageURI.orEmpty(), characterImage.context)
