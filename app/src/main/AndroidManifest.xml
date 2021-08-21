@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Marvel">
-        <activity android:name=".ui.splash.SplashActivity"
+        <activity android:name="com.bugiadev.presentation.splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.MainActivity"
+        <activity android:name="com.bugiadev.presentation.main.MainActivity"
             android:screenOrientation="portrait"/>
 
     </application>

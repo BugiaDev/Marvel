@@ -6,8 +6,8 @@ import com.bugiadev.marvel.domain.models.ThumbnailModel
 import com.bugiadev.marvel.domain.repository.MarvelRepository
 import com.bugiadev.marvel.lifecycle.observeOnce
 import com.bugiadev.marvel.rules.RxSchedulerRule
-import com.bugiadev.marvel.ui.viewmodel.MarvelListViewModel
-import com.bugiadev.marvel.ui.viewmodel.UnexpectedError
+import com.bugiadev.presentation.viewmodel.MarvelListViewModel
+import com.bugiadev.presentation.viewmodel.UnexpectedError
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
