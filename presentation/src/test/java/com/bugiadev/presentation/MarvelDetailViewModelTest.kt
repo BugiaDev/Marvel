@@ -1,11 +1,11 @@
-package com.bugiadev.marvel
+package com.bugiadev.presentation
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.bugiadev.marvel.domain.models.CharacterModel
-import com.bugiadev.marvel.domain.models.ThumbnailModel
-import com.bugiadev.marvel.domain.repository.MarvelRepository
-import com.bugiadev.marvel.lifecycle.observeOnce
-import com.bugiadev.marvel.rules.RxSchedulerRule
+import com.bugiadev.domain.models.CharacterModel
+import com.bugiadev.domain.models.ThumbnailModel
+import com.bugiadev.domain.repository.MarvelRepository
+import com.bugiadev.presentation.lifecycle.observeOnce
+import com.bugiadev.presentation.rules.RxSchedulerRule
 import com.bugiadev.presentation.viewmodel.MarvelDetailViewModel
 import com.bugiadev.presentation.viewmodel.UnexpectedError
 import io.mockk.every

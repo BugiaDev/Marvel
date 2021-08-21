@@ -1,4 +1,4 @@
-package com.bugiadev.marvel.rules
+package com.bugiadev.presentation.rules
 
 import io.reactivex.Scheduler
 import io.reactivex.android.plugins.RxAndroidPlugins

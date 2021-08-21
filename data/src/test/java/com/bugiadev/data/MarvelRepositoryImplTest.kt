@@ -1,12 +1,12 @@
-package com.bugiadev.marvel
+package com.bugiadev.data
 
-import com.bugiadev.marvel.data.datasource.MarvelDataSource
-import com.bugiadev.marvel.data.entities.CharacterEntity
-import com.bugiadev.marvel.data.entities.MarvelDataEntity
-import com.bugiadev.marvel.data.entities.MarvelEntity
-import com.bugiadev.marvel.data.entities.ThumbnailEntity
-import com.bugiadev.marvel.data.repository.MarvelRepositoryImpl
-import com.bugiadev.marvel.domain.repository.MarvelRepository
+import com.bugiadev.data.datasource.MarvelDataSource
+import com.bugiadev.data.entities.CharacterEntity
+import com.bugiadev.data.entities.MarvelDataEntity
+import com.bugiadev.data.entities.MarvelEntity
+import com.bugiadev.data.entities.ThumbnailEntity
+import com.bugiadev.data.repository.MarvelRepositoryImpl
+import com.bugiadev.domain.repository.MarvelRepository
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

@@ -1,4 +1,4 @@
-package com.bugiadev.marvel.lifecycle
+package com.bugiadev.presentation.lifecycle
 
 import androidx.lifecycle.*
 
