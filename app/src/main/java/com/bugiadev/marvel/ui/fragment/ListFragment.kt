@@ -1,7 +1,6 @@
 package com.bugiadev.marvel.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +9,13 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import com.bugiadev.marvel.databinding.FragmentListBinding
 import com.bugiadev.marvel.di.MarvelComponent
 import com.bugiadev.marvel.di.MarvelInjection
-import com.bugiadev.marvel.ui.presentation.toDisplay
-import com.bugiadev.marvel.ui.viewmodel.MarvelViewModel
+import com.bugiadev.marvel.ui.viewmodel.MarvelListViewModel
 import com.bugiadev.marvel.ui.views.adapter.MarvelAdapter
 import com.bugiadev.marvel.utils.viewModel
 
 class ListFragment : BaseFragment<FragmentListBinding>() {
     private lateinit var marvelComponent: MarvelComponent
-    private val viewModel: MarvelViewModel by viewModel { marvelComponent.marvelViewModel }
+    private val viewModel: MarvelListViewModel by viewModel { marvelComponent.marvelListViewModel }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,16 +50,12 @@ class ListFragment : BaseFragment<FragmentListBinding>() {
         })
 
         viewModel.marvelCharacters.observe(viewLifecycleOwner, { characters ->
-            val characterDisplays = characters.map {
-                it.toDisplay()
-            }
-
             val adapter = MarvelAdapter(
                 onItemClick = { display ->
                     display.id?.let {
                         viewModel.onCharacterSelected(it)
                     }
-                }, characterDisplays
+                }, characters
             )
 
             binding.characterList.adapter = adapter

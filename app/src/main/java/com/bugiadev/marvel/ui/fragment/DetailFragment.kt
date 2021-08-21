@@ -10,15 +10,14 @@ import com.bugiadev.marvel.R
 import com.bugiadev.marvel.databinding.FragmentDetailBinding
 import com.bugiadev.marvel.di.MarvelComponent
 import com.bugiadev.marvel.di.MarvelInjection
-import com.bugiadev.marvel.ui.presentation.toDisplay
-import com.bugiadev.marvel.ui.viewmodel.MarvelViewModel
+import com.bugiadev.marvel.ui.viewmodel.MarvelDetailViewModel
 import com.bugiadev.marvel.utils.loadFromUrl
 import com.bugiadev.marvel.utils.viewModel
 
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     private val args: DetailFragmentArgs by navArgs()
     private lateinit var marvelComponent: MarvelComponent
-    private val viewModel: MarvelViewModel by viewModel { marvelComponent.marvelViewModel }
+    private val viewModel: MarvelDetailViewModel by viewModel { marvelComponent.marvelDetailViewModel }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,13 +50,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         })
 
         viewModel.marvelCharacterDetail.observe(viewLifecycleOwner, { character ->
-            val display = character.toDisplay()
             binding.apply {
                 val descriptionText =
-                    if (display.description.isNullOrEmpty()) getString(R.string.character_no_description_placeholder) else display.description
-                nameTextview.text = display.name
+                    if (character.description.isNullOrEmpty()) getString(R.string.character_no_description_placeholder) else character.description
+                nameTextview.text = character.name
                 descriptionTextview.text = descriptionText
-                characterImage.loadFromUrl(display.imageURI.orEmpty(), characterImage.context)
+                characterImage.loadFromUrl(character.imageURI.orEmpty(), characterImage.context)
             }
         })
     }
